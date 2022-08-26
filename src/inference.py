@@ -197,7 +197,7 @@ def audio_infer(wav):
 
     # reconstruct with Griffin Lim (takes a while, later feed this wav as input to vocoder)
     print('Reconstructing with Griffin Lim...')
-    x = reconstruct_waveform(spect_trg)
+    x = reconstruct_waveform(spect_trg, n_iter=1024)
     
     sf.write(root+'/gen/%s_gen.wav'%fname, x, sample_rate)  # generated output
     sf.write(root+'/ref/%s_ref.wav'%fname, sample, sample_rate)  # input reference (for convenience)
